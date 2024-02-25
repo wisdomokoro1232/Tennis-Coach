@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>logFormatVersion</key>
+	<integer>10</integer>
+	<key>logs</key>
+	<dict>
+		<key>064B1BF8-5702-4D74-AD8B-F5D318C44FC9</key>
+		<dict>
+			<key>className</key>
+			<string>IDEActivityLogSection</string>
+			<key>documentTypeString</key>
+			<string>&lt;nil&gt;</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
+			<key>fileName</key>
+			<string>064B1BF8-5702-4D74-AD8B-F5D318C44FC9.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>E</string>
+				<key>totalNumberOfAnalyzerIssues</key>
+				<integer>0</integer>
+				<key>totalNumberOfErrors</key>
+				<integer>1</integer>
+				<key>totalNumberOfTestFailures</key>
+				<integer>0</integer>
+				<key>totalNumberOfWarnings</key>
+				<integer>1</integer>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>MotionTracking project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>SwingWatch WatchKit App</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Build SwingWatch WatchKit App</string>
+			<key>timeStartedRecording</key>
+			<real>730497354.46826804</real>
+			<key>timeStoppedRecording</key>
+			<real>730497355.61969805</real>
+			<key>title</key>
+			<string>Build SwingWatch WatchKit App</string>
+			<key>uniqueIdentifier</key>
+			<string>064B1BF8-5702-4D74-AD8B-F5D318C44FC9</string>
+		</dict>
+		<key>1D9C84BD-BD4A-4A6F-BBB6-2B47382F44F1</key>
+		<dict>
+			<key>className</key>
+			<string>IDEActivityLogSection</string>
+			<key>documentTypeString</key>
+			<string>&lt;nil&gt;</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
+			<key>fileName</key>
+			<string>1D9C84BD-BD4A-4A6F-BBB6-2B47382F44F1.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>E</string>
+				<key>totalNumberOfAnalyzerIssues</key>
+				<integer>0</integer>
+				<key>totalNumberOfErrors</key>
+				<integer>1</integer>
+				<key>totalNumberOfTestFailures</key>
+				<integer>0</integer>
+				<key>totalNumberOfWarnings</key>
+				<integer>1</integer>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>MotionTracking project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>SwingWatch WatchKit App</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Build SwingWatch WatchKit App</string>
+			<key>timeStartedRecording</key>
+			<real>730497447.43316102</real>
+			<key>timeStoppedRecording</key>
+			<real>730497447.75185597</real>
+			<key>title</key>
+			<string>Build SwingWatch WatchKit App</string>
+			<key>uniqueIdentifier</key>
+			<string>1D9C84BD-BD4A-4A6F-BBB6-2B47382F44F1</string>
+		</dict>
+		<key>7762FFE3-F1EB-426F-A521-8A6F8DD8AEB4</key>
+		<dict>
+			<key>className</key>
+			<string>IDEActivityLogSection</string>
+			<key>documentTypeString</key>
+			<string>&lt;nil&gt;</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
+			<key>fileName</key>
+			<string>7762FFE3-F1EB-426F-A521-8A6F8DD8AEB4.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>E</string>
+				<key>totalNumberOfAnalyzerIssues</key>
+				<integer>0</integer>
+				<key>totalNumberOfErrors</key>
+				<integer>1</integer>
+				<key>totalNumberOfTestFailures</key>
+				<integer>0</integer>
+				<key>totalNumberOfWarnings</key>
+				<integer>1</integer>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>MotionTracking project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>SwingWatch WatchKit App</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Build SwingWatch WatchKit App</string>
+			<key>timeStartedRecording</key>
+			<real>730497521.27015197</real>
+			<key>timeStoppedRecording</key>
+			<real>730497524.48276806</real>
+			<key>title</key>
+			<string>Build SwingWatch WatchKit App</string>
+			<key>uniqueIdentifier</key>
+			<string>7762FFE3-F1EB-426F-A521-8A6F8DD8AEB4</string>
+		</dict>
+	</dict>
+</dict>
+</plist>

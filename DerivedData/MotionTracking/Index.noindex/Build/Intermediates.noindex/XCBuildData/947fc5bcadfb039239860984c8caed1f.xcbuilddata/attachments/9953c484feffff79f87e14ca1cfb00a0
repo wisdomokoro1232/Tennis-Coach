@@ -1,0 +1,23 @@
+{
+  'version': 0,
+  'use-external-names': 'false',
+  'case-sensitive': 'false',
+  'roots': [{
+    'type': 'directory',
+    'name': "/Users/wisdom/Library/CloudStorage/OneDrive-ImperialCollegeLondon/uni/FYP-DESKTOP-27I1PBE/CricketMotionAnalysis-main/Tennis-Coach/DerivedData/MotionTracking/Index.noindex/Build/Products/Debug-iphoneos/DGCharts/DGCharts.framework/Modules"
+    'contents': [{
+      'type': 'file',
+      'name': "module.modulemap",
+      'external-contents': "/Users/wisdom/Library/CloudStorage/OneDrive-ImperialCollegeLondon/uni/FYP-DESKTOP-27I1PBE/CricketMotionAnalysis-main/Tennis-Coach/DerivedData/MotionTracking/Index.noindex/Build/Intermediates.noindex/Pods.build/Debug-iphoneos/DGCharts.build/unextended-module.modulemap",
+    }]
+    },
+    {
+    'type': 'directory',
+    'name': "/Users/wisdom/Library/CloudStorage/OneDrive-ImperialCollegeLondon/uni/FYP-DESKTOP-27I1PBE/CricketMotionAnalysis-main/Tennis-Coach/DerivedData/MotionTracking/Index.noindex/Build/Products/Debug-iphoneos/DGCharts/DGCharts.framework/Headers"
+    'contents': [{
+      'type': 'file',
+      'name': "DGCharts-Swift.h",
+      'external-contents': "/Users/wisdom/Library/CloudStorage/OneDrive-ImperialCollegeLondon/uni/FYP-DESKTOP-27I1PBE/CricketMotionAnalysis-main/Tennis-Coach/DerivedData/MotionTracking/Index.noindex/Build/Intermediates.noindex/Pods.build/Debug-iphoneos/DGCharts.build/unextended-interface-header.h",
+    }]
+    }]
+}

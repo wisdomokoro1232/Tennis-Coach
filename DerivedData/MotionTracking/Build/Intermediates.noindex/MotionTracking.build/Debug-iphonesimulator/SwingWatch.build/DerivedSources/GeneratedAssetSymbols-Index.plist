@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>colors</key>
+	<array/>
+	<key>images</key>
+	<array>
+		<dict>
+			<key>catalogPath</key>
+			<string>/Users/wisdom/Library/CloudStorage/OneDrive-ImperialCollegeLondon/uni/FYP-DESKTOP-27I1PBE/CricketMotionAnalysis-main/Tennis-Coach/MotionTracking/Assets.xcassets</string>
+			<key>objcSymbol</key>
+			<string>ACImageNameCricket1</string>
+			<key>relativePath</key>
+			<string>./Cricket1.imageset</string>
+			<key>swiftSymbol</key>
+			<string>cricket1</string>
+		</dict>
+		<dict>
+			<key>catalogPath</key>
+			<string>/Users/wisdom/Library/CloudStorage/OneDrive-ImperialCollegeLondon/uni/FYP-DESKTOP-27I1PBE/CricketMotionAnalysis-main/Tennis-Coach/MotionTracking/Assets.xcassets</string>
+			<key>objcSymbol</key>
+			<string>ACImageNameCricket2</string>
+			<key>relativePath</key>
+			<string>./Cricket2.imageset</string>
+			<key>swiftSymbol</key>
+			<string>cricket2</string>
+		</dict>
+		<dict>
+			<key>catalogPath</key>
+			<string>/Users/wisdom/Library/CloudStorage/OneDrive-ImperialCollegeLondon/uni/FYP-DESKTOP-27I1PBE/CricketMotionAnalysis-main/Tennis-Coach/MotionTracking/Assets.xcassets</string>
+			<key>objcSymbol</key>
+			<string>ACImageNameCricket3</string>
+			<key>relativePath</key>
+			<string>./Cricket3.imageset</string>
+			<key>swiftSymbol</key>
+			<string>cricket3</string>
+		</dict>
+		<dict>
+			<key>catalogPath</key>
+			<string>/Users/wisdom/Library/CloudStorage/OneDrive-ImperialCollegeLondon/uni/FYP-DESKTOP-27I1PBE/CricketMotionAnalysis-main/Tennis-Coach/MotionTracking/Assets.xcassets</string>
+			<key>objcSymbol</key>
+			<string>ACImageNameSherry</string>
+			<key>relativePath</key>
+			<string>./Sherry.imageset</string>
+			<key>swiftSymbol</key>
+			<string>sherry</string>
+		</dict>
+		<dict>
+			<key>catalogPath</key>
+			<string>/Users/wisdom/Library/CloudStorage/OneDrive-ImperialCollegeLondon/uni/FYP-DESKTOP-27I1PBE/CricketMotionAnalysis-main/Tennis-Coach/MotionTracking/Assets.xcassets</string>
+			<key>objcSymbol</key>
+			<string>ACImageNameMakiCricket</string>
+			<key>relativePath</key>
+			<string>./maki-cricket.imageset</string>
+			<key>swiftSymbol</key>
+			<string>makiCricket</string>
+		</dict>
+	</array>
+	<key>symbols</key>
+	<array/>
+</dict>
+</plist>

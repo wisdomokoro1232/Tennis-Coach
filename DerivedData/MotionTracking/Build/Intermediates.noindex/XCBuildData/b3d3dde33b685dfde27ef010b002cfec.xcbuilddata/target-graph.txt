@@ -1,0 +1,11 @@
+Target dependency graph (5 targets)
+Target 'SwingWatch' in project 'MotionTracking'
+➜ Explicit dependency on target 'SwingWatch WatchKit App' in project 'MotionTracking'
+➜ Implicit dependency on target 'Pods-SwingWatch' in project 'Pods' via file 'Pods_SwingWatch.framework' in build phase 'Link Binary'
+➜ Implicit dependency on target 'DGCharts' in project 'Pods' via options '-framework DGCharts' in build setting 'OTHER_LDFLAGS'
+Target 'Pods-SwingWatch' in project 'Pods'
+➜ Explicit dependency on target 'DGCharts' in project 'Pods'
+Target 'DGCharts' in project 'Pods'
+➜ Explicit dependency on target 'DGCharts-DGCharts' in project 'Pods'
+Target 'DGCharts-DGCharts' in project 'Pods' (no dependencies)
+Target 'SwingWatch WatchKit App' in project 'MotionTracking' (no dependencies)

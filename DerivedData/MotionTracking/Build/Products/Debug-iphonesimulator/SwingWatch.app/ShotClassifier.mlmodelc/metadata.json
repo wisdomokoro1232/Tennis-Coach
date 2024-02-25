@@ -1,0 +1,159 @@
+[
+  {
+    "shortDescription" : "Classifier for FYP Cricket Shot Classification",
+    "metadataOutputVersion" : "3.0",
+    "outputSchema" : [
+      {
+        "isOptional" : "0",
+        "keyType" : "String",
+        "formattedType" : "Dictionary (String → Double)",
+        "type" : "Dictionary",
+        "name" : "labelProbability",
+        "shortDescription" : "Activity prediction probabilities"
+      },
+      {
+        "isOptional" : "0",
+        "formattedType" : "String",
+        "type" : "String",
+        "name" : "label",
+        "shortDescription" : "Class label of top prediction"
+      },
+      {
+        "hasShapeFlexibility" : "0",
+        "isOptional" : "0",
+        "dataType" : "Double",
+        "formattedType" : "MultiArray (Double 400)",
+        "shortDescription" : "LSTM state output",
+        "shape" : "[400]",
+        "name" : "stateOut",
+        "type" : "MultiArray"
+      }
+    ],
+    "version" : "--",
+    "modelParameters" : [
+
+    ],
+    "author" : "Dan Anderton",
+    "specificationVersion" : 1,
+    "storagePrecision" : "Float32",
+    "license" : "--",
+    "computePrecision" : "Float16",
+    "isUpdatable" : "0",
+    "availability" : {
+      "macOS" : "10.13",
+      "tvOS" : "11.0",
+      "visionOS" : "1.0",
+      "watchOS" : "4.0",
+      "iOS" : "11.0",
+      "macCatalyst" : "11.0"
+    },
+    "modelType" : {
+      "name" : "MLModelType_neuralNetworkClassifier"
+    },
+    "inputSchema" : [
+      {
+        "hasShapeFlexibility" : "0",
+        "isOptional" : "0",
+        "dataType" : "Double",
+        "formattedType" : "MultiArray (Double 100)",
+        "shortDescription" : "acceleration_x window input",
+        "shape" : "[100]",
+        "name" : "acceleration_x",
+        "type" : "MultiArray"
+      },
+      {
+        "hasShapeFlexibility" : "0",
+        "isOptional" : "0",
+        "dataType" : "Double",
+        "formattedType" : "MultiArray (Double 100)",
+        "shortDescription" : "acceleration_y window input",
+        "shape" : "[100]",
+        "name" : "acceleration_y",
+        "type" : "MultiArray"
+      },
+      {
+        "hasShapeFlexibility" : "0",
+        "isOptional" : "0",
+        "dataType" : "Double",
+        "formattedType" : "MultiArray (Double 100)",
+        "shortDescription" : "acceleration_z window input",
+        "shape" : "[100]",
+        "name" : "acceleration_z",
+        "type" : "MultiArray"
+      },
+      {
+        "hasShapeFlexibility" : "0",
+        "isOptional" : "0",
+        "dataType" : "Double",
+        "formattedType" : "MultiArray (Double 100)",
+        "shortDescription" : "gyro_x window input",
+        "shape" : "[100]",
+        "name" : "gyro_x",
+        "type" : "MultiArray"
+      },
+      {
+        "hasShapeFlexibility" : "0",
+        "isOptional" : "0",
+        "dataType" : "Double",
+        "formattedType" : "MultiArray (Double 100)",
+        "shortDescription" : "gyro_y window input",
+        "shape" : "[100]",
+        "name" : "gyro_y",
+        "type" : "MultiArray"
+      },
+      {
+        "hasShapeFlexibility" : "0",
+        "isOptional" : "0",
+        "dataType" : "Double",
+        "formattedType" : "MultiArray (Double 100)",
+        "shortDescription" : "gyro_z window input",
+        "shape" : "[100]",
+        "name" : "gyro_z",
+        "type" : "MultiArray"
+      },
+      {
+        "hasShapeFlexibility" : "0",
+        "isOptional" : "0",
+        "dataType" : "Double",
+        "formattedType" : "MultiArray (Double 400)",
+        "shortDescription" : "LSTM state input",
+        "shape" : "[400]",
+        "name" : "stateIn",
+        "type" : "MultiArray"
+      }
+    ],
+    "classLabels" : [
+      "Cut",
+      "Defensive",
+      "Drive",
+      "Pull",
+      "Sweep"
+    ],
+    "generatedClassName" : "ShotClassifier",
+    "userDefinedMetadata" : {
+      "target" : "label",
+      "com.apple.coreml.model.preview.type" : "activityClassifier",
+      "com.apple.createml.version" : "11.5.2",
+      "com.apple.createml.app.tag" : "78.8",
+      "session_id" : "session_id",
+      "max_iterations" : "30",
+      "version" : "2",
+      "type" : "activity_classifier",
+      "features" : "acceleration_x,acceleration_y,acceleration_z,gyro_x,gyro_y,gyro_z",
+      "prediction_window" : "120",
+      "com.apple.createml.app.version" : "3.0"
+    },
+    "neuralNetworkLayerTypeHistogram" : {
+      "Concat" : 2,
+      "Slice" : 2,
+      "ActivationReLU" : 2,
+      "Softmax" : 1,
+      "UniDirectionalLSTM" : 1,
+      "BatchNorm" : 1,
+      "Convolution" : 1,
+      "InnerProduct" : 2,
+      "Reshape" : 1
+    },
+    "method" : "predict"
+  }
+]

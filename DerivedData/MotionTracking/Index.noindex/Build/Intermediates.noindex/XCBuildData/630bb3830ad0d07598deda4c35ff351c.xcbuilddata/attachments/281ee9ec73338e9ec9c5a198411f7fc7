@@ -1,0 +1,39 @@
+{
+  "" : {
+    "dependencies" : "/Users/wisdom/Library/CloudStorage/OneDrive-ImperialCollegeLondon/uni/FYP-DESKTOP-27I1PBE/CricketMotionAnalysis-main/Tennis-Coach/DerivedData/MotionTracking/Index.noindex/Build/Intermediates.noindex/MotionTracking.build/Debug-iphoneos/SwingWatch.build/Objects-normal/arm64/SwingWatch-master.d",
+    "diagnostics" : "/Users/wisdom/Library/CloudStorage/OneDrive-ImperialCollegeLondon/uni/FYP-DESKTOP-27I1PBE/CricketMotionAnalysis-main/Tennis-Coach/DerivedData/MotionTracking/Index.noindex/Build/Intermediates.noindex/MotionTracking.build/Debug-iphoneos/SwingWatch.build/Objects-normal/arm64/SwingWatch-master.dia",
+    "emit-module-dependencies" : "/Users/wisdom/Library/CloudStorage/OneDrive-ImperialCollegeLondon/uni/FYP-DESKTOP-27I1PBE/CricketMotionAnalysis-main/Tennis-Coach/DerivedData/MotionTracking/Index.noindex/Build/Intermediates.noindex/MotionTracking.build/Debug-iphoneos/SwingWatch.build/Objects-normal/arm64/SwingWatch-master-emit-module.d",
+    "emit-module-diagnostics" : "/Users/wisdom/Library/CloudStorage/OneDrive-ImperialCollegeLondon/uni/FYP-DESKTOP-27I1PBE/CricketMotionAnalysis-main/Tennis-Coach/DerivedData/MotionTracking/Index.noindex/Build/Intermediates.noindex/MotionTracking.build/Debug-iphoneos/SwingWatch.build/Objects-normal/arm64/SwingWatch-master-emit-module.dia",
+    "swift-dependencies" : "/Users/wisdom/Library/CloudStorage/OneDrive-ImperialCollegeLondon/uni/FYP-DESKTOP-27I1PBE/CricketMotionAnalysis-main/Tennis-Coach/DerivedData/MotionTracking/Index.noindex/Build/Intermediates.noindex/MotionTracking.build/Debug-iphoneos/SwingWatch.build/Objects-normal/arm64/SwingWatch-master.swiftdeps"
+  },
+  "/Users/wisdom/Library/CloudStorage/OneDrive-ImperialCollegeLondon/uni/FYP-DESKTOP-27I1PBE/CricketMotionAnalysis-main/Tennis-Coach/DerivedData/MotionTracking/Index.noindex/Build/Intermediates.noindex/MotionTracking.build/Debug-iphoneos/SwingWatch.build/DerivedSources/CoreMLGenerated/FYP 1/FYP 1.swift" : {
+
+  },
+  "/Users/wisdom/Library/CloudStorage/OneDrive-ImperialCollegeLondon/uni/FYP-DESKTOP-27I1PBE/CricketMotionAnalysis-main/Tennis-Coach/DerivedData/MotionTracking/Index.noindex/Build/Intermediates.noindex/MotionTracking.build/Debug-iphoneos/SwingWatch.build/DerivedSources/CoreMLGenerated/ShotClassifier/ShotClassifier.swift" : {
+
+  },
+  "/Users/wisdom/Library/CloudStorage/OneDrive-ImperialCollegeLondon/uni/FYP-DESKTOP-27I1PBE/CricketMotionAnalysis-main/Tennis-Coach/DerivedData/MotionTracking/Index.noindex/Build/Intermediates.noindex/MotionTracking.build/Debug-iphoneos/SwingWatch.build/DerivedSources/GeneratedAssetSymbols.swift" : {
+
+  },
+  "/Users/wisdom/Library/CloudStorage/OneDrive-ImperialCollegeLondon/uni/FYP-DESKTOP-27I1PBE/CricketMotionAnalysis-main/Tennis-Coach/MotionTracking/AppDelegate.swift" : {
+
+  },
+  "/Users/wisdom/Library/CloudStorage/OneDrive-ImperialCollegeLondon/uni/FYP-DESKTOP-27I1PBE/CricketMotionAnalysis-main/Tennis-Coach/MotionTracking/HistoryTableViewController.swift" : {
+
+  },
+  "/Users/wisdom/Library/CloudStorage/OneDrive-ImperialCollegeLondon/uni/FYP-DESKTOP-27I1PBE/CricketMotionAnalysis-main/Tennis-Coach/MotionTracking/HistoryViewController.swift" : {
+
+  },
+  "/Users/wisdom/Library/CloudStorage/OneDrive-ImperialCollegeLondon/uni/FYP-DESKTOP-27I1PBE/CricketMotionAnalysis-main/Tennis-Coach/MotionTracking/TableShowViewController.swift" : {
+
+  },
+  "/Users/wisdom/Library/CloudStorage/OneDrive-ImperialCollegeLondon/uni/FYP-DESKTOP-27I1PBE/CricketMotionAnalysis-main/Tennis-Coach/MotionTracking/TableViewController.swift" : {
+
+  },
+  "/Users/wisdom/Library/CloudStorage/OneDrive-ImperialCollegeLondon/uni/FYP-DESKTOP-27I1PBE/CricketMotionAnalysis-main/Tennis-Coach/MotionTracking/ViewController_Stats.swift" : {
+
+  },
+  "/Users/wisdom/Library/CloudStorage/OneDrive-ImperialCollegeLondon/uni/FYP-DESKTOP-27I1PBE/CricketMotionAnalysis-main/Tennis-Coach/MotionTracking/ViewController.swift" : {
+
+  }
+}

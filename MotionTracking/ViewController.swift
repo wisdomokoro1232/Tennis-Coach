@@ -308,18 +308,22 @@ class ViewController: UIViewController, ChartViewDelegate, UITextFieldDelegate {
         }
     }
     @IBAction func displayYGyro(_ sender: Any) {
-        var line = [BarChartDataEntry]()
-        for x in 0...119 {
-            line.append(BarChartDataEntry(x: Double(x)/80.0, y: appDelegate.rotY_edit[x]))
+        if checkData() {
+            var line = [BarChartDataEntry]()
+            for x in 0...119 {
+                line.append(BarChartDataEntry(x: Double(x)/80.0, y: appDelegate.rotY_edit[x]))
+            }
+            updateLineChart(line_entries: line, name: "Y Rotation")
         }
-        updateLineChart(line_entries: line, name: "Y Rotation")
     }
     @IBAction func displayZGyro(_ sender: Any) {
-        var line = [BarChartDataEntry]()
-        for x in 0...119 {
-            line.append(BarChartDataEntry(x: Double(x)/80.0, y: appDelegate.rotZ_edit[x]))
+        if checkData() {
+            var line = [BarChartDataEntry]()
+            for x in 0...119 {
+                line.append(BarChartDataEntry(x: Double(x)/80.0, y: appDelegate.rotZ_edit[x]))
+            }
+            updateLineChart(line_entries: line, name: "Z Rotation")
         }
-        updateLineChart(line_entries: line, name: "Z Rotation")
     }
     
     

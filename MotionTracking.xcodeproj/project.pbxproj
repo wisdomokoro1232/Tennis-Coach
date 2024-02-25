@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		26D8A04A2B88F29A00EF3AF3 /* Pods_SwingWatch.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7DBAA74DAB8F11174C1C76DB /* Pods_SwingWatch.framework */; };
 		26D8A04D2B88F29D00EF3AF3 /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F827A7D201BEA2200633D5A /* HealthKit.framework */; };
 		26D8A04F2B88F2E300EF3AF3 /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F44F546284535B100A74043 /* HealthKit.framework */; };
 		26D8A0552B89207300EF3AF3 /* IMG_3077.png in Resources */ = {isa = PBXBuildFile; fileRef = 26D8A0542B89207300EF3AF3 /* IMG_3077.png */; };
@@ -25,6 +24,7 @@
 		52AFB3CE1CEAD2D800BE33DC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 52AFB3CD1CEAD2D800BE33DC /* Assets.xcassets */; };
 		52AFB3E11CEAD5BE00BE33DC /* WorkoutManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52AFB3E01CEAD5BE00BE33DC /* WorkoutManager.swift */; };
 		52D5E3C31CF414E1001660B4 /* MotionTrackingWatchKitExtension.entitlements in Resources */ = {isa = PBXBuildFile; fileRef = 52D5E3C21CF414E1001660B4 /* MotionTrackingWatchKitExtension.entitlements */; };
+		8A7EAEC101B8E5F2051815B4 /* Pods_SwingWatch.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 430764FB277439E30F8F20A8 /* Pods_SwingWatch.framework */; };
 		8F3968F8281C4AB9002637E6 /* SwingWatch WatchKit App.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 52AFB3B11CEAD2D800BE33DC /* SwingWatch WatchKit App.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		8F41C5972848029200950109 /* Template_Drive.csv in Resources */ = {isa = PBXBuildFile; fileRef = 8F41C5962848029200950109 /* Template_Drive.csv */; };
 		8F41C5992848140C00950109 /* Template_Defensive.csv in Resources */ = {isa = PBXBuildFile; fileRef = 8F41C5982848140C00950109 /* Template_Defensive.csv */; };
@@ -65,11 +65,9 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		05040B55EC58E8526EDACD0A /* Pods-SwingWatch WatchKit App.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwingWatch WatchKit App.debug.xcconfig"; path = "Target Support Files/Pods-SwingWatch WatchKit App/Pods-SwingWatch WatchKit App.debug.xcconfig"; sourceTree = "<group>"; };
-		1ACFF84950A13140C2820153 /* Pods-SwingWatch WatchKit Extension.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwingWatch WatchKit Extension.debug.xcconfig"; path = "Target Support Files/Pods-SwingWatch WatchKit Extension/Pods-SwingWatch WatchKit Extension.debug.xcconfig"; sourceTree = "<group>"; };
-		1C8E2DBAF110E2153830A72A /* Pods-SwingWatch.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwingWatch.release.xcconfig"; path = "Target Support Files/Pods-SwingWatch/Pods-SwingWatch.release.xcconfig"; sourceTree = "<group>"; };
+		183D6F776FC4B392D1AA90A9 /* Pods-SwingWatch.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwingWatch.debug.xcconfig"; path = "Target Support Files/Pods-SwingWatch/Pods-SwingWatch.debug.xcconfig"; sourceTree = "<group>"; };
 		26D8A0542B89207300EF3AF3 /* IMG_3077.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = IMG_3077.png; path = Assets.xcassets/IMG_3077.png; sourceTree = "<group>"; };
-		4DC8F448595E3F31F0CB98DD /* Pods-SwingWatch WatchKit App.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwingWatch WatchKit App.release.xcconfig"; path = "Target Support Files/Pods-SwingWatch WatchKit App/Pods-SwingWatch WatchKit App.release.xcconfig"; sourceTree = "<group>"; };
+		430764FB277439E30F8F20A8 /* Pods_SwingWatch.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SwingWatch.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		522824351CF681410019A236 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		529BCDF41CF394B60099461F /* MotionManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MotionManager.swift; sourceTree = "<group>"; };
 		52A4FC1E1CF59D900039BA23 /* RunningBuffer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RunningBuffer.swift; sourceTree = "<group>"; };
@@ -93,8 +91,7 @@
 		52D5E3C21CF414E1001660B4 /* MotionTrackingWatchKitExtension.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.entitlements; path = MotionTrackingWatchKitExtension.entitlements; sourceTree = "<group>"; };
 		5F827A7B201BEA0800633D5A /* MotionTracking WatchKit App.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "MotionTracking WatchKit App.entitlements"; sourceTree = "<group>"; };
 		5F827A7D201BEA2200633D5A /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
-		7DBAA74DAB8F11174C1C76DB /* Pods_SwingWatch.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SwingWatch.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		855799E231CA0FD1D77A1DCF /* Pods-SwingWatch WatchKit Extension.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwingWatch WatchKit Extension.release.xcconfig"; path = "Target Support Files/Pods-SwingWatch WatchKit Extension/Pods-SwingWatch WatchKit Extension.release.xcconfig"; sourceTree = "<group>"; };
+		728C85223819BC0117F16727 /* Pods-SwingWatch.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwingWatch.release.xcconfig"; path = "Target Support Files/Pods-SwingWatch/Pods-SwingWatch.release.xcconfig"; sourceTree = "<group>"; };
 		8F41C5962848029200950109 /* Template_Drive.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Template_Drive.csv; sourceTree = "<group>"; };
 		8F41C5982848140C00950109 /* Template_Defensive.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Template_Defensive.csv; sourceTree = "<group>"; };
 		8F41C59A2848142300950109 /* Template_Cut.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Template_Cut.csv; sourceTree = "<group>"; };
@@ -110,7 +107,6 @@
 		8F44F54828453BA900A74043 /* SwingWatch WatchKit Extension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "SwingWatch WatchKit Extension.entitlements"; sourceTree = "<group>"; };
 		8FBEA505280F08BF008832F5 /* ViewController_Stats.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController_Stats.swift; sourceTree = "<group>"; };
 		8FBEA509280F62B2008832F5 /* TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
-		D5995D3536DD7940B3EAA244 /* Pods-SwingWatch.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwingWatch.debug.xcconfig"; path = "Target Support Files/Pods-SwingWatch/Pods-SwingWatch.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -126,8 +122,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				26D8A04A2B88F29A00EF3AF3 /* Pods_SwingWatch.framework in Frameworks */,
 				26D8A04D2B88F29D00EF3AF3 /* HealthKit.framework in Frameworks */,
+				8A7EAEC101B8E5F2051815B4 /* Pods_SwingWatch.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -216,7 +212,7 @@
 			children = (
 				8F44F546284535B100A74043 /* HealthKit.framework */,
 				5F827A7D201BEA2200633D5A /* HealthKit.framework */,
-				7DBAA74DAB8F11174C1C76DB /* Pods_SwingWatch.framework */,
+				430764FB277439E30F8F20A8 /* Pods_SwingWatch.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -224,12 +220,8 @@
 		FFA39B34521041346D78F7CF /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				D5995D3536DD7940B3EAA244 /* Pods-SwingWatch.debug.xcconfig */,
-				1C8E2DBAF110E2153830A72A /* Pods-SwingWatch.release.xcconfig */,
-				05040B55EC58E8526EDACD0A /* Pods-SwingWatch WatchKit App.debug.xcconfig */,
-				4DC8F448595E3F31F0CB98DD /* Pods-SwingWatch WatchKit App.release.xcconfig */,
-				1ACFF84950A13140C2820153 /* Pods-SwingWatch WatchKit Extension.debug.xcconfig */,
-				855799E231CA0FD1D77A1DCF /* Pods-SwingWatch WatchKit Extension.release.xcconfig */,
+				183D6F776FC4B392D1AA90A9 /* Pods-SwingWatch.debug.xcconfig */,
+				728C85223819BC0117F16727 /* Pods-SwingWatch.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -241,12 +233,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 52AFB3DA1CEAD2D800BE33DC /* Build configuration list for PBXNativeTarget "SwingWatch" */;
 			buildPhases = (
-				AA52BA9A3B9DAE2F95AB0161 /* [CP] Check Pods Manifest.lock */,
+				B043169F17F56B3B37ACC4F5 /* [CP] Check Pods Manifest.lock */,
 				52AFB3901CEAD2D800BE33DC /* Sources */,
 				52AFB3911CEAD2D800BE33DC /* Frameworks */,
 				52AFB3921CEAD2D800BE33DC /* Resources */,
 				52AFB3D91CEAD2D800BE33DC /* Embed Watch Content */,
-				1E259C4E75220213509C3B06 /* [CP] Embed Pods Frameworks */,
+				94CAF29C3690EE623644A491 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -262,10 +254,8 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 52AFB3D61CEAD2D800BE33DC /* Build configuration list for PBXNativeTarget "SwingWatch WatchKit App" */;
 			buildPhases = (
-				52F15F6CDC6BF598C622A3F6 /* [CP] Check Pods Manifest.lock */,
 				52AFB3AF1CEAD2D800BE33DC /* Resources */,
 				0DE1ECBBADFE7E1709869FCE /* Frameworks */,
-				A69E9C3D6074DF395E375B45 /* [CP] Check Pods Manifest.lock */,
 				52AFB3BC1CEAD2D800BE33DC /* Sources */,
 			);
 			buildRules = (
@@ -355,7 +345,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		1E259C4E75220213509C3B06 /* [CP] Embed Pods Frameworks */ = {
+		94CAF29C3690EE623644A491 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -373,51 +363,7 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SwingWatch/Pods-SwingWatch-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		52F15F6CDC6BF598C622A3F6 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-SwingWatch WatchKit App-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		A69E9C3D6074DF395E375B45 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-SwingWatch WatchKit Extension-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		AA52BA9A3B9DAE2F95AB0161 /* [CP] Check Pods Manifest.lock */ = {
+		B043169F17F56B3B37ACC4F5 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -626,7 +572,6 @@
 		};
 		52AFB3D71CEAD2D800BE33DC /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 05040B55EC58E8526EDACD0A /* Pods-SwingWatch WatchKit App.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
@@ -646,7 +591,6 @@
 		};
 		52AFB3D81CEAD2D800BE33DC /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 4DC8F448595E3F31F0CB98DD /* Pods-SwingWatch WatchKit App.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
@@ -666,7 +610,7 @@
 		};
 		52AFB3DB1CEAD2D800BE33DC /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = D5995D3536DD7940B3EAA244 /* Pods-SwingWatch.debug.xcconfig */;
+			baseConfigurationReference = 183D6F776FC4B392D1AA90A9 /* Pods-SwingWatch.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = MotionTracking/MotionTrackingExtension.entitlements;
@@ -685,7 +629,7 @@
 		};
 		52AFB3DC1CEAD2D800BE33DC /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 1C8E2DBAF110E2153830A72A /* Pods-SwingWatch.release.xcconfig */;
+			baseConfigurationReference = 728C85223819BC0117F16727 /* Pods-SwingWatch.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = MotionTracking/MotionTrackingExtension.entitlements;

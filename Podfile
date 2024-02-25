@@ -17,11 +17,5 @@ end
 #  # Pods for SwingWatch WatchKit App
 #
 #end
-#
-#target 'SwingWatch WatchKit Extension' do
-#  # Comment the next line if you don't want to use dynamic frameworks
-#  use_frameworks!
-#
-#  # Pods for SwingWatch WatchKit Extension
-#
-#end
+
+workspace 'MotionTracking'
