@@ -31,11 +31,11 @@ class ViewController: UIViewController, ChartViewDelegate, UITextFieldDelegate {
     @IBOutlet weak var textfield: UITextField!
     
     
-    var defensiveDataEntry = PieChartDataEntry(value: 0)
-    var driveDataEntry = PieChartDataEntry(value: 0)
-    var cutDataEntry = PieChartDataEntry(value: 0)
-    var pullDataEntry = PieChartDataEntry(value: 0)
-    var sweepDataEntry = PieChartDataEntry(value: 0)
+    var backhandDataEntry = PieChartDataEntry(value: 0)
+    var foreDataEntry = PieChartDataEntry(value: 0)
+    var serveDataEntry = PieChartDataEntry(value: 0)
+    var forevDataEntry = PieChartDataEntry(value: 0)
+    var backvDataEntry = PieChartDataEntry(value: 0)
     
     var numberOfDownloadsDataEntries = [PieChartDataEntry]()
     var line_entries = [BarChartDataEntry]()
@@ -45,11 +45,13 @@ class ViewController: UIViewController, ChartViewDelegate, UITextFieldDelegate {
     var graph = 0
     var status = true
     
-//    var template_cut = [String]()
+//    var template_serve = [String]()
     
     var gravityX = [Double]()
     var gravityY = [Double]()
     var gravityZ = [Double]()
+    var shotlength = 249
+    let sensorfreq = 100.0
     
     
     struct Template {
@@ -81,18 +83,18 @@ class ViewController: UIViewController, ChartViewDelegate, UITextFieldDelegate {
       struct ModelConstants {
         static let numOfFeatures = 6
         // Must be the same value you used while training
-        static let predictionWindowSize = 120
-        static let sensorsUpdateFrequency = 1.0 / 80.0
+        static let predictionWindowSize = 250
+        static let sensorsUpdateFrequency = 1.0 / 100.0
         static let hiddenInLength = 20
         static let hiddenCellInLength = 380
       }
     // Initialize the model, layers, and sensor data arrays
-      private let classifier = FYP_1()
-      private let modelName:String = "ShotClassifier"
+      private let classifier = Tennis_Classifier_NN_1()
+      private let modelName:String = "Tennis Classifier NN 1"
     
     
     
-    var temp_cut_xg = [String]()
+    var temp_serve_xg = [String]()
     
     
     
@@ -203,48 +205,48 @@ class ViewController: UIViewController, ChartViewDelegate, UITextFieldDelegate {
         pieChartshots.chartDescription.text = ""
         pieChartshots.noDataText = "You need to register a shot for this chart to display!"
         
-        defensiveDataEntry.label = "Defensive"
-        let def_index = names.enumerated().filter{ $0.element == "Defensive"}.map{ $0.offset }
-        if def_index.count > 0 {
-            let val_def  = Double(values[def_index[0]])
-            defensiveDataEntry.value = val_def
+        backhandDataEntry.label = "backhand"
+        let back_index = names.enumerated().filter{ $0.element == "backhand"}.map{ $0.offset }
+        if back_index.count > 0 {
+            let val_forehand  = Double(values[back_index[0]])
+            backhandDataEntry.value = val_forehand
         }
-        else {defensiveDataEntry.value = 0}
+        else {backhandDataEntry.value = 0}
         
-        driveDataEntry.label = "Drive"
-        let drv_index = names.enumerated().filter{ $0.element == "Drive"}.map{ $0.offset }
-        if drv_index.count > 0 {
-            let val_drv  = Double(values[drv_index[0]])
-            driveDataEntry.value = val_drv
+        foreDataEntry.label = "forehand"
+        let fore_index = names.enumerated().filter{ $0.element == "forehand"}.map{ $0.offset }
+        if fore_index.count > 0 {
+            let val_fore  = Double(values[fore_index[0]])
+            foreDataEntry.value = val_fore
         }
-        else {driveDataEntry.value = 0}
+        else {foreDataEntry.value = 0}
         
-        cutDataEntry.label = "Cut"
-        let cut_index = names.enumerated().filter{ $0.element == "Cut"}.map{ $0.offset }
-        if cut_index.count > 0 {
-            let val_cut  = Double(values[cut_index[0]])
-            cutDataEntry.value = val_cut
+        serveDataEntry.label = "serve"
+        let serve_index = names.enumerated().filter{ $0.element == "serve"}.map{ $0.offset }
+        if serve_index.count > 0 {
+            let val_serve  = Double(values[serve_index[0]])
+            serveDataEntry.value = val_serve
         }
-        else {cutDataEntry.value = 0}
+        else {serveDataEntry.value = 0}
 
-        pullDataEntry.label = "Pull"
-        let pll_index = names.enumerated().filter{ $0.element == "Pull"}.map{ $0.offset }
-        if pll_index.count > 0 {
-            let val_pll  = Double(values[pll_index[0]])
-            pullDataEntry.value = val_pll
+        forevDataEntry.label = "forehand volley"
+        let forev_index = names.enumerated().filter{ $0.element == "forehand volley"}.map{ $0.offset }
+        if forev_index.count > 0 {
+            let val_forev  = Double(values[forev_index[0]])
+            forevDataEntry.value = val_forev
         }
-        else {pullDataEntry.value = 0}
+        else {forevDataEntry.value = 0}
 
-        sweepDataEntry.label = "Sweep"
-        let swp_index = names.enumerated().filter{ $0.element == "Sweep"}.map{ $0.offset }
-        if swp_index.count > 0 {
-            let val_swp  = Double(values[swp_index[0]])
-            sweepDataEntry.value = val_swp
+        backvDataEntry.label = "backhand volley"
+        let backv_index = names.enumerated().filter{ $0.element == "backhand volley"}.map{ $0.offset }
+        if backv_index.count > 0 {
+            let val_backv  = Double(values[backv_index[0]])
+            backvDataEntry.value = val_backv
         }
-        else {sweepDataEntry.value = 0}
+        else {backvDataEntry.value = 0}
 
         
-        numberOfDownloadsDataEntries = [defensiveDataEntry, driveDataEntry, cutDataEntry, pullDataEntry, sweepDataEntry]
+        numberOfDownloadsDataEntries = [backhandDataEntry, foreDataEntry, serveDataEntry, forevDataEntry, backvDataEntry]
         
         let chartDataSet = PieChartDataSet(entries: numberOfDownloadsDataEntries)
         let chartData = PieChartData(dataSet: chartDataSet)
@@ -255,6 +257,7 @@ class ViewController: UIViewController, ChartViewDelegate, UITextFieldDelegate {
         pieChartshots.animate(xAxisDuration: 2.0, yAxisDuration: 2.0, easingOption: .easeInBounce)
         
     }
+// Mark: Check that data ahs been recorded so app doesnt crash when trying to retrieve it
     
     func checkData() -> Bool
     {
@@ -274,8 +277,8 @@ class ViewController: UIViewController, ChartViewDelegate, UITextFieldDelegate {
         
         if checkData() {
             var line = [BarChartDataEntry]()
-            for x in 0...119 {
-                line.append(BarChartDataEntry(x: Double(x)/80.0, y: appDelegate.accX_edit[x]))
+            for x in 0...shotlength {
+                line.append(BarChartDataEntry(x: Double(x)/sensorfreq, y: appDelegate.accX_edit[x]))
             }
             updateLineChart(line_entries: line, name: "X Acceleration")
         }
@@ -283,8 +286,8 @@ class ViewController: UIViewController, ChartViewDelegate, UITextFieldDelegate {
     @IBAction func displayYAcc(_ sender: Any) {
         if checkData() {
             var line = [BarChartDataEntry]()
-            for x in 0...119 {
-                line.append(BarChartDataEntry(x: Double(x)/80.0, y: appDelegate.accY_edit[x]))
+            for x in 0...shotlength {
+                line.append(BarChartDataEntry(x: Double(x)/sensorfreq, y: appDelegate.accY_edit[x]))
             }
             updateLineChart(line_entries: line, name: "Y Acceleration")
         }
@@ -292,8 +295,8 @@ class ViewController: UIViewController, ChartViewDelegate, UITextFieldDelegate {
     @IBAction func displayZAcc(_ sender: Any) {
         if checkData() {
             var line = [BarChartDataEntry]()
-            for x in 0...119 {
-                line.append(BarChartDataEntry(x: Double(x)/80.0, y: appDelegate.accZ_edit[x]))
+            for x in 0...shotlength {
+                line.append(BarChartDataEntry(x: Double(x)/sensorfreq, y: appDelegate.accZ_edit[x]))
             }
             updateLineChart(line_entries: line, name: "Z Acceleration")
         }
@@ -301,8 +304,8 @@ class ViewController: UIViewController, ChartViewDelegate, UITextFieldDelegate {
     @IBAction func displayXGyro(_ sender: Any) {
         if checkData() {
             var line = [BarChartDataEntry]()
-            for x in 0...119 {
-                line.append(BarChartDataEntry(x: Double(x)/80.0, y: appDelegate.rotX_edit[x]))
+            for x in 0...shotlength {
+                line.append(BarChartDataEntry(x: Double(x)/sensorfreq, y: appDelegate.rotX_edit[x]))
             }
             updateLineChart(line_entries: line, name: "X Rotation")
         }
@@ -310,8 +313,8 @@ class ViewController: UIViewController, ChartViewDelegate, UITextFieldDelegate {
     @IBAction func displayYGyro(_ sender: Any) {
         if checkData() {
             var line = [BarChartDataEntry]()
-            for x in 0...119 {
-                line.append(BarChartDataEntry(x: Double(x)/80.0, y: appDelegate.rotY_edit[x]))
+            for x in 0...shotlength {
+                line.append(BarChartDataEntry(x: Double(x)/sensorfreq, y: appDelegate.rotY_edit[x]))
             }
             updateLineChart(line_entries: line, name: "Y Rotation")
         }
@@ -319,8 +322,8 @@ class ViewController: UIViewController, ChartViewDelegate, UITextFieldDelegate {
     @IBAction func displayZGyro(_ sender: Any) {
         if checkData() {
             var line = [BarChartDataEntry]()
-            for x in 0...119 {
-                line.append(BarChartDataEntry(x: Double(x)/80.0, y: appDelegate.rotZ_edit[x]))
+            for x in 0...shotlength {
+                line.append(BarChartDataEntry(x: Double(x)/sensorfreq, y: appDelegate.rotZ_edit[x]))
             }
             updateLineChart(line_entries: line, name: "Z Rotation")
         }
@@ -420,16 +423,17 @@ class ViewController: UIViewController, ChartViewDelegate, UITextFieldDelegate {
         
         
         if (sep.count > 700) {
-            
-            let rotX = sep[1...120]
-            let rotY = sep[123...242]
-            let rotZ = sep[245...364]
-            let accX = sep[367...486]
-            let accY = sep[489...608]
-            let accZ = sep[611...730]
-            let gravX = sep[733...852]
-            let gravY = sep[855...974]
-            let gravZ = sep[977...1096]
+            // 250 here referes to amount of samples in a shot to be fed
+            // to the model
+            let rotX = sep[1...250]
+            let rotY = sep[253...502]
+            let rotZ = sep[505...754]
+            let accX = sep[757...1006]
+            let accY = sep[1009...1258]
+            let accZ = sep[1261...1510]
+            let gravX = sep[1513...1762]
+            let gravY = sep[1765...2014]
+            let gravZ = sep[2017...2266]
 
             appDelegate.rotX_edit = rotX.doubleArray
             appDelegate.rotY_edit = rotY.doubleArray
@@ -444,7 +448,7 @@ class ViewController: UIViewController, ChartViewDelegate, UITextFieldDelegate {
             gravityZ = gravZ.doubleArray
             
     
-            for j in (0...119) {
+            for j in (0...249) {
                 self.rotX_final![j] = appDelegate.rotX_edit[j] as NSNumber
                 self.rotY_final![j] = appDelegate.rotY_edit[j] as NSNumber
                 self.rotZ_final![j] = appDelegate.rotZ_edit[j] as NSNumber
@@ -477,9 +481,9 @@ class ViewController: UIViewController, ChartViewDelegate, UITextFieldDelegate {
         acceleration_x: accX_final!,
         acceleration_y: accY_final!,
         acceleration_z: accZ_final!,
-        gyro_x: rotX_final!,
-        gyro_y: rotY_final!,
-        gyro_z: rotZ_final!,
+        gyrox: rotX_final!,
+        gyroy: rotY_final!,
+        gyroz: rotZ_final!,
         stateIn: currentState!)
     // Update the state vector
       currentState = modelPrediction?.stateOut
@@ -516,39 +520,39 @@ class ViewController: UIViewController, ChartViewDelegate, UITextFieldDelegate {
         
         // SHOT QUALITY
         
-        let temp_defensive = getCSVData(from: "Template_Defensive")
-        let temp_drive = getCSVData(from: "Template_Drive")
-        let temp_cut = getCSVData(from: "Template_Cut")
-        let temp_pull = getCSVData(from: "Template_Pull")
-        let temp_sweep = getCSVData(from: "Template_Sweep")
+        let temp_back = getCSVData(from: "Back_template")
+        let temp_forehand = getCSVData(from: "Fore_template")
+        let temp_serve = getCSVData(from: "Serve_template")
+        let temp_backv = getCSVData(from: "BackV_template")
+        let temp_forev = getCSVData(from: "ForeV_template")
         
-        var temp_def = [[Double]]()
-        var temp_drv = [[Double]]()
-        var temp_ct = [[Double]]()
-        var temp_pll = [[Double]]()
-        var temp_swp = [[Double]]()
+        var temp_bck = [[Double]]()
+        var temp_fre = [[Double]]()
+        var temp_srv = [[Double]]()
+        var temp_bckv = [[Double]]()
+        var temp_frv = [[Double]]()
         
         for x in 0...5 {
-            temp_def.append(temp_defensive[x].doubleArray)
-            temp_drv.append(temp_drive[x].doubleArray)
-            temp_ct.append(temp_cut[x].doubleArray)
-            temp_pll.append(temp_pull[x].doubleArray)
-            temp_swp.append(temp_sweep[x].doubleArray)
+            temp_bck.append(temp_back[x].doubleArray)
+            temp_fre.append(temp_forehand[x].doubleArray)
+            temp_srv.append(temp_serve[x].doubleArray)
+            temp_bckv.append(temp_backv[x].doubleArray)
+            temp_frv.append(temp_forev[x].doubleArray)
         }
         
         var consistency = [0.0,0.0,0.0,0.0,0.0,0.0]
-        print(temp_swp[0])
+        print(temp_frv[0])
         
         var avgconsistency = Double()
         
-        if self.classlabel.text == "Defensive" {
-            for i in (0...119) {
-                consistency[0] = consistency[0] + sqrt(pow((appDelegate.accX_edit[i])-Double((temp_def[0].index(0, offsetBy: i))),2))
-                consistency[1] = consistency[1] + sqrt(pow((appDelegate.accY_edit[i])-Double((temp_def[1].index(0, offsetBy: i))),2))
-                consistency[2] = consistency[2] + sqrt(pow((appDelegate.accZ_edit[i])-Double((temp_def[2].index(0, offsetBy: i))),2))
-                consistency[3] = consistency[3] + sqrt(pow((appDelegate.rotX_edit[i])-Double((temp_def[3].index(0, offsetBy: i))),2))
-                consistency[4] = consistency[4] + sqrt(pow((appDelegate.rotY_edit[i])-Double((temp_def[4].index(0, offsetBy: i))),2))
-                consistency[5] = consistency[5] + sqrt(pow((appDelegate.rotZ_edit[i])-Double((temp_def[5].index(0, offsetBy: i))),2))
+        if self.classlabel.text == "backhand" {
+            for i in (0...shotlength) {
+                consistency[0] = consistency[0] + sqrt(pow((appDelegate.accX_edit[i])-Double((temp_bck[0].index(0, offsetBy: i))),2))
+                consistency[1] = consistency[1] + sqrt(pow((appDelegate.accY_edit[i])-Double((temp_bck[1].index(0, offsetBy: i))),2))
+                consistency[2] = consistency[2] + sqrt(pow((appDelegate.accZ_edit[i])-Double((temp_bck[2].index(0, offsetBy: i))),2))
+                consistency[3] = consistency[3] + sqrt(pow((appDelegate.rotX_edit[i])-Double((temp_bck[3].index(0, offsetBy: i))),2))
+                consistency[4] = consistency[4] + sqrt(pow((appDelegate.rotY_edit[i])-Double((temp_bck[4].index(0, offsetBy: i))),2))
+                consistency[5] = consistency[5] + sqrt(pow((appDelegate.rotZ_edit[i])-Double((temp_bck[5].index(0, offsetBy: i))),2))
             }
             
             consistency[0] = ((500.0-consistency[0])/400.0)*5.0 + 5.0
@@ -562,14 +566,14 @@ class ViewController: UIViewController, ChartViewDelegate, UITextFieldDelegate {
             avgconsistency = sumArray / Double(consistency.count)
         }
         
-        if self.classlabel.text == "Drive" {
-            for i in (0...119) {
-                consistency[0] = consistency[0] + sqrt(pow((appDelegate.accX_edit[i])-Double((temp_drv[0].index(0, offsetBy: i))),2))
-                consistency[1] = consistency[1] + sqrt(pow((appDelegate.accY_edit[i])-Double((temp_drv[1].index(0, offsetBy: i))),2))
-                consistency[2] = consistency[2] + sqrt(pow((appDelegate.accZ_edit[i])-Double((temp_drv[2].index(0, offsetBy: i))),2))
-                consistency[3] = consistency[3] + sqrt(pow((appDelegate.rotX_edit[i])-Double((temp_def[3].index(0, offsetBy: i))),2))
-                consistency[4] = consistency[4] + sqrt(pow((appDelegate.rotY_edit[i])-Double((temp_drv[4].index(0, offsetBy: i))),2))
-                consistency[5] = consistency[5] + sqrt(pow((appDelegate.rotZ_edit[i])-Double((temp_drv[5].index(0, offsetBy: i))),2))
+        if self.classlabel.text == "forehand" {
+            for i in (0...shotlength) {
+                consistency[0] = consistency[0] + sqrt(pow((appDelegate.accX_edit[i])-Double((temp_fre[0].index(0, offsetBy: i))),2))
+                consistency[1] = consistency[1] + sqrt(pow((appDelegate.accY_edit[i])-Double((temp_fre[1].index(0, offsetBy: i))),2))
+                consistency[2] = consistency[2] + sqrt(pow((appDelegate.accZ_edit[i])-Double((temp_fre[2].index(0, offsetBy: i))),2))
+                consistency[3] = consistency[3] + sqrt(pow((appDelegate.rotX_edit[i])-Double((temp_bck[3].index(0, offsetBy: i))),2))
+                consistency[4] = consistency[4] + sqrt(pow((appDelegate.rotY_edit[i])-Double((temp_fre[4].index(0, offsetBy: i))),2))
+                consistency[5] = consistency[5] + sqrt(pow((appDelegate.rotZ_edit[i])-Double((temp_fre[5].index(0, offsetBy: i))),2))
             }
             
             consistency[0] = ((500.0-consistency[0])/400.0)*5.0 + 5.0
@@ -583,14 +587,14 @@ class ViewController: UIViewController, ChartViewDelegate, UITextFieldDelegate {
             avgconsistency = sumArray / Double(consistency.count)
         }
         
-        if self.classlabel.text == "Cut" {
-            for i in (0...119) {
-                consistency[0] = consistency[0] + sqrt(pow((appDelegate.accX_edit[i])-Double((temp_cut[0].index(0, offsetBy: i))),2))
-                consistency[1] = consistency[1] + sqrt(pow((appDelegate.accY_edit[i])-Double((temp_cut[1].index(0, offsetBy: i))),2))
-                consistency[2] = consistency[2] + sqrt(pow((appDelegate.accZ_edit[i])-Double((temp_cut[2].index(0, offsetBy: i))),2))
-                consistency[3] = consistency[3] + sqrt(pow((appDelegate.rotX_edit[i])-Double((temp_cut[3].index(0, offsetBy: i))),2))
-                consistency[4] = consistency[4] + sqrt(pow((appDelegate.rotY_edit[i])-Double((temp_cut[4].index(0, offsetBy: i))),2))
-                consistency[5] = consistency[5] + sqrt(pow((appDelegate.rotZ_edit[i])-Double((temp_cut[5].index(0, offsetBy: i))),2))
+        if self.classlabel.text == "serve" {
+            for i in (0...shotlength) {
+                consistency[0] = consistency[0] + sqrt(pow((appDelegate.accX_edit[i])-Double((temp_serve[0].index(0, offsetBy: i))),2))
+                consistency[1] = consistency[1] + sqrt(pow((appDelegate.accY_edit[i])-Double((temp_serve[1].index(0, offsetBy: i))),2))
+                consistency[2] = consistency[2] + sqrt(pow((appDelegate.accZ_edit[i])-Double((temp_serve[2].index(0, offsetBy: i))),2))
+                consistency[3] = consistency[3] + sqrt(pow((appDelegate.rotX_edit[i])-Double((temp_serve[3].index(0, offsetBy: i))),2))
+                consistency[4] = consistency[4] + sqrt(pow((appDelegate.rotY_edit[i])-Double((temp_serve[4].index(0, offsetBy: i))),2))
+                consistency[5] = consistency[5] + sqrt(pow((appDelegate.rotZ_edit[i])-Double((temp_serve[5].index(0, offsetBy: i))),2))
             }
             
             consistency[0] = ((500.0-consistency[0])/400.0)*5.0 + 5.0
@@ -604,14 +608,14 @@ class ViewController: UIViewController, ChartViewDelegate, UITextFieldDelegate {
             avgconsistency = sumArray / Double(consistency.count)
         }
         
-        if self.classlabel.text == "Pull" {
-            for i in (0...119) {
-                consistency[0] = consistency[0] + sqrt(pow((appDelegate.accX_edit[i])-Double((temp_pll[0].index(0, offsetBy: i))),2))
-                consistency[1] = consistency[1] + sqrt(pow((appDelegate.accY_edit[i])-Double((temp_pll[1].index(0, offsetBy: i))),2))
-                consistency[2] = consistency[2] + sqrt(pow((appDelegate.accZ_edit[i])-Double((temp_pll[2].index(0, offsetBy: i))),2))
-                consistency[3] = consistency[3] + sqrt(pow((appDelegate.rotX_edit[i])-Double((temp_pll[3].index(0, offsetBy: i))),2))
-                consistency[4] = consistency[4] + sqrt(pow((appDelegate.rotY_edit[i])-Double((temp_pll[4].index(0, offsetBy: i))),2))
-                consistency[5] = consistency[5] + sqrt(pow((appDelegate.rotZ_edit[i])-Double((temp_pll[5].index(0, offsetBy: i))),2))
+        if self.classlabel.text == "forehand volley" {
+            for i in (0...shotlength) {
+                consistency[0] = consistency[0] + sqrt(pow((appDelegate.accX_edit[i])-Double((temp_bckv[0].index(0, offsetBy: i))),2))
+                consistency[1] = consistency[1] + sqrt(pow((appDelegate.accY_edit[i])-Double((temp_bckv[1].index(0, offsetBy: i))),2))
+                consistency[2] = consistency[2] + sqrt(pow((appDelegate.accZ_edit[i])-Double((temp_bckv[2].index(0, offsetBy: i))),2))
+                consistency[3] = consistency[3] + sqrt(pow((appDelegate.rotX_edit[i])-Double((temp_bckv[3].index(0, offsetBy: i))),2))
+                consistency[4] = consistency[4] + sqrt(pow((appDelegate.rotY_edit[i])-Double((temp_bckv[4].index(0, offsetBy: i))),2))
+                consistency[5] = consistency[5] + sqrt(pow((appDelegate.rotZ_edit[i])-Double((temp_bckv[5].index(0, offsetBy: i))),2))
             }
             
             consistency[0] = ((500.0-consistency[0])/400.0)*5.0 + 5.0
@@ -625,14 +629,14 @@ class ViewController: UIViewController, ChartViewDelegate, UITextFieldDelegate {
             avgconsistency = sumArray / Double(consistency.count)
         }
         
-        if self.classlabel.text == "Sweep" {
-            for i in (0...119) {
-                consistency[0] = consistency[0] + sqrt(pow((appDelegate.accX_edit[i])-Double((temp_swp[0].index(0, offsetBy: i))),2))
-                consistency[1] = consistency[1] + sqrt(pow((appDelegate.accY_edit[i])-Double((temp_swp[1].index(0, offsetBy: i))),2))
-                consistency[2] = consistency[2] + sqrt(pow((appDelegate.accZ_edit[i])-Double((temp_swp[2].index(0, offsetBy: i))),2))
-                consistency[3] = consistency[3] + sqrt(pow((appDelegate.rotX_edit[i])-Double((temp_swp[3].index(0, offsetBy: i))),2))
-                consistency[4] = consistency[4] + sqrt(pow((appDelegate.rotY_edit[i])-Double((temp_swp[4].index(0, offsetBy: i))),2))
-                consistency[5] = consistency[5] + sqrt(pow((appDelegate.rotZ_edit[i])-Double((temp_swp[5].index(0, offsetBy: i))),2))
+        if self.classlabel.text == "backhand volley" {
+            for i in (0...shotlength) {
+                consistency[0] = consistency[0] + sqrt(pow((appDelegate.accX_edit[i])-Double((temp_frv[0].index(0, offsetBy: i))),2))
+                consistency[1] = consistency[1] + sqrt(pow((appDelegate.accY_edit[i])-Double((temp_frv[1].index(0, offsetBy: i))),2))
+                consistency[2] = consistency[2] + sqrt(pow((appDelegate.accZ_edit[i])-Double((temp_frv[2].index(0, offsetBy: i))),2))
+                consistency[3] = consistency[3] + sqrt(pow((appDelegate.rotX_edit[i])-Double((temp_frv[3].index(0, offsetBy: i))),2))
+                consistency[4] = consistency[4] + sqrt(pow((appDelegate.rotY_edit[i])-Double((temp_frv[4].index(0, offsetBy: i))),2))
+                consistency[5] = consistency[5] + sqrt(pow((appDelegate.rotZ_edit[i])-Double((temp_frv[5].index(0, offsetBy: i))),2))
             }
             
             consistency[0] = ((500.0-consistency[0])/400.0)*5.0 + 5.0
@@ -678,7 +682,7 @@ class ViewController: UIViewController, ChartViewDelegate, UITextFieldDelegate {
         
         var ImpactAngle = Double()
         
-        if self.classlabel.text == "Defensive" {
+        if self.classlabel.text == "backhand" {
             
             let impactangles_lookup = Array(stride(from: -10.0, through: 45.0, by: 0.1))
             let no_imp_def = impactangles_lookup.count
@@ -696,7 +700,7 @@ class ViewController: UIViewController, ChartViewDelegate, UITextFieldDelegate {
             ImpactAngle = impactangles_lookup[index]
         }
         
-        if self.classlabel.text == "Drive" {
+        if self.classlabel.text == "forehand" {
             
             let impactangles_lookup = Array(stride(from: -45.0, through: 45.0, by: 0.1))
             let no_imp_drv = impactangles_lookup.count
@@ -715,15 +719,15 @@ class ViewController: UIViewController, ChartViewDelegate, UITextFieldDelegate {
         }
         
         
-        if self.classlabel.text == "Cut" {
+        if self.classlabel.text == "serve" {
             
             let impactangles_lookup = Array(stride(from: 45.0, through: 160.0, by: 0.1))
-            let no_imp_cut = impactangles_lookup.count
-            let increment = 0.4/Double(no_imp_cut)
+            let no_imp_serve = impactangles_lookup.count
+            let increment = 0.4/Double(no_imp_serve)
             var yvals = [Double]()
             var idx = [Double]()
             
-            for x in 0...no_imp_cut-1 {
+            for x in 0...no_imp_serve-1 {
                 yvals.append(0.5 + Double(x)*increment)
                 idx.append(abs(yvals[x] - gravityZ[60]))
             }
@@ -733,7 +737,7 @@ class ViewController: UIViewController, ChartViewDelegate, UITextFieldDelegate {
             ImpactAngle = impactangles_lookup[index]
         }
         
-        if self.classlabel.text == "Pull" {
+        if self.classlabel.text == "forehand volley" {
             
             let impactangles_lookup = Array(stride(from: 45.0, through: 160.0, by: 0.1))
             let no_imp_pll = impactangles_lookup.count
@@ -752,7 +756,7 @@ class ViewController: UIViewController, ChartViewDelegate, UITextFieldDelegate {
         }
         
         
-        if self.classlabel.text == "Sweep" {
+        if self.classlabel.text == "backhand volley" {
             
             let impactangles_lookup = Array(stride(from: 45.0, through: 160.0, by: 0.1))
             let no_imp_swp = impactangles_lookup.count
@@ -952,8 +956,8 @@ extension ViewController: WCSessionDelegate {
     
             line_entries.removeAll()
             
-            for x in 0...119 {
-                line_entries.append(BarChartDataEntry(x: Double(x)/80.0, y: appDelegate.rotX_edit[x]))
+            for x in 0...shotlength {
+                line_entries.append(BarChartDataEntry(x: Double(x)/sensorfreq, y: appDelegate.rotX_edit[x]))
             }
             updateLineChart(line_entries: line_entries, name: "X Rotation")
             }

@@ -42,12 +42,14 @@ class MotionManager {
     let session = WCSession.default
 
     // These constants were derived from data and are tuned for the shot detection
-    let accThreshold = 2.0 // Acceleration magnitude threshold (2g)
+    let accThreshold = 1.0 // Acceleration magnitude threshold (2g)
+    let gyroThreshold = 5.5
     var resetThreshold = 0.0 // counter variable to to ensure minimum distance in time between shots
     
     // The app is using 80hz data and the buffer is going to hold 1.5s worth of data.
-    let sampleInterval = 1.0 / 80
-    let magnitude_buffer = RunningBuffer(size: 120)
+    let sampleInterval = 1.0 / 100
+    let magnitude_buffer = RunningBuffer(size: 250)
+    let halfShot = 125
     
     weak var delegate: MotionManagerDelegate?
     
@@ -141,30 +143,32 @@ class MotionManager {
         
         let accmagnitude = sqrt(pow(deviceMotion.userAcceleration.x, 2) + pow(deviceMotion.userAcceleration.y, 2) + pow(deviceMotion.userAcceleration.z, 2))
         
+        let gyromagnitude = sqrt(pow(deviceMotion.rotationRate.x, 2) + pow(deviceMotion.rotationRate.y, 2) + pow(deviceMotion.rotationRate.z, 2))
+        
         magnitude_buffer.addSample(accmagnitude)
 
         if !magnitude_buffer.isFull() {return}
         
-        if (accmagnitude > accThreshold) {
+        if (accmagnitude > accThreshold) && (gyromagnitude > gyroThreshold) {
             incrementShotCountAndUpdateDelegate()
             i_detection = self.i
         }
         
-        if (recentDetection && self.i > i_detection+60) {
+        if (recentDetection && self.i > i_detection+halfShot) {
             recentDetection = false
             magnitude_buffer.reset()
             
             var ArrayOfSampleData2 = [[Double]](repeating: [Double](repeating: 0, count: 1), count: 9)
             
-            let xg_shot = self.x_gyro[(i_detection-60)...(i_detection+60)]
-            let yg_shot = self.y_gyro[(i_detection-60)...(i_detection+60)]
-            let zg_shot = self.z_gyro[(i_detection-60)...(i_detection+60)]
-            let xa_shot = self.x_acc[(i_detection-60)...(i_detection+60)]
-            let ya_shot = self.y_acc[(i_detection-60)...(i_detection+60)]
-            let za_shot = self.z_acc[(i_detection-60)...(i_detection+60)]
-            let xgrav_shot = self.x_grav[(i_detection-60)...(i_detection+60)]
-            let ygrav_shot = self.y_grav[(i_detection-60)...(i_detection+60)]
-            let zgrav_shot = self.z_grav[(i_detection-60)...(i_detection+60)]
+            let xg_shot = self.x_gyro[(i_detection-halfShot)...(i_detection+halfShot)]
+            let yg_shot = self.y_gyro[(i_detection-halfShot)...(i_detection+halfShot)]
+            let zg_shot = self.z_gyro[(i_detection-halfShot)...(i_detection+halfShot)]
+            let xa_shot = self.x_acc[(i_detection-halfShot)...(i_detection+halfShot)]
+            let ya_shot = self.y_acc[(i_detection-halfShot)...(i_detection+halfShot)]
+            let za_shot = self.z_acc[(i_detection-halfShot)...(i_detection+halfShot)]
+            let xgrav_shot = self.x_grav[(i_detection-halfShot)...(i_detection+halfShot)]
+            let ygrav_shot = self.y_grav[(i_detection-halfShot)...(i_detection+halfShot)]
+            let zgrav_shot = self.z_grav[(i_detection-halfShot)...(i_detection+halfShot)]
 
             ArrayOfSampleData2[0].append(contentsOf: xg_shot)
             ArrayOfSampleData2[1].append(contentsOf: yg_shot)

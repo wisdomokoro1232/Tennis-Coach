@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2643AE4C2B8B6EFC006874F5 /* Tennis Classifier NN 1.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 2643AE4B2B8B6EFC006874F5 /* Tennis Classifier NN 1.mlmodel */; };
+		2643AE522B8B8630006874F5 /* BackV_template.csv in Resources */ = {isa = PBXBuildFile; fileRef = 2643AE4D2B8B862E006874F5 /* BackV_template.csv */; };
+		2643AE532B8B8630006874F5 /* Back_template.csv in Resources */ = {isa = PBXBuildFile; fileRef = 2643AE4E2B8B862F006874F5 /* Back_template.csv */; };
+		2643AE542B8B8630006874F5 /* Fore_template.csv in Resources */ = {isa = PBXBuildFile; fileRef = 2643AE4F2B8B862F006874F5 /* Fore_template.csv */; };
+		2643AE552B8B8630006874F5 /* ForeV_template.csv in Resources */ = {isa = PBXBuildFile; fileRef = 2643AE502B8B8630006874F5 /* ForeV_template.csv */; };
+		2643AE562B8B8630006874F5 /* Serve_template.csv in Resources */ = {isa = PBXBuildFile; fileRef = 2643AE512B8B8630006874F5 /* Serve_template.csv */; };
 		26D8A04D2B88F29D00EF3AF3 /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F827A7D201BEA2200633D5A /* HealthKit.framework */; };
 		26D8A04F2B88F2E300EF3AF3 /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F44F546284535B100A74043 /* HealthKit.framework */; };
 		26D8A0552B89207300EF3AF3 /* IMG_3077.png in Resources */ = {isa = PBXBuildFile; fileRef = 26D8A0542B89207300EF3AF3 /* IMG_3077.png */; };
@@ -66,6 +72,12 @@
 
 /* Begin PBXFileReference section */
 		183D6F776FC4B392D1AA90A9 /* Pods-SwingWatch.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwingWatch.debug.xcconfig"; path = "Target Support Files/Pods-SwingWatch/Pods-SwingWatch.debug.xcconfig"; sourceTree = "<group>"; };
+		2643AE4B2B8B6EFC006874F5 /* Tennis Classifier NN 1.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; name = "Tennis Classifier NN 1.mlmodel"; path = "ML MOdels/Tennis Classifier NN 1.mlmodel"; sourceTree = SOURCE_ROOT; };
+		2643AE4D2B8B862E006874F5 /* BackV_template.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = BackV_template.csv; sourceTree = "<group>"; };
+		2643AE4E2B8B862F006874F5 /* Back_template.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Back_template.csv; sourceTree = "<group>"; };
+		2643AE4F2B8B862F006874F5 /* Fore_template.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Fore_template.csv; sourceTree = "<group>"; };
+		2643AE502B8B8630006874F5 /* ForeV_template.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ForeV_template.csv; sourceTree = "<group>"; };
+		2643AE512B8B8630006874F5 /* Serve_template.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Serve_template.csv; sourceTree = "<group>"; };
 		26D8A0542B89207300EF3AF3 /* IMG_3077.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = IMG_3077.png; path = Assets.xcassets/IMG_3077.png; sourceTree = "<group>"; };
 		430764FB277439E30F8F20A8 /* Pods_SwingWatch.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SwingWatch.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		522824351CF681410019A236 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
@@ -159,6 +171,11 @@
 				52AFB3971CEAD2D800BE33DC /* AppDelegate.swift */,
 				52AFB3991CEAD2D800BE33DC /* ViewController.swift */,
 				8F41C5982848140C00950109 /* Template_Defensive.csv */,
+				2643AE4E2B8B862F006874F5 /* Back_template.csv */,
+				2643AE4D2B8B862E006874F5 /* BackV_template.csv */,
+				2643AE4F2B8B862F006874F5 /* Fore_template.csv */,
+				2643AE502B8B8630006874F5 /* ForeV_template.csv */,
+				2643AE512B8B8630006874F5 /* Serve_template.csv */,
 				8F41C5962848029200950109 /* Template_Drive.csv */,
 				8F41C59A2848142300950109 /* Template_Cut.csv */,
 				8F41C59C2848143300950109 /* Template_Pull.csv */,
@@ -174,6 +191,7 @@
 				52AFB3A01CEAD2D800BE33DC /* LaunchScreen.storyboard */,
 				52AFB3A31CEAD2D800BE33DC /* Info.plist */,
 				8F44F53B283F9FCD00A74043 /* ShotClassifier.mlpackage */,
+				2643AE4B2B8B6EFC006874F5 /* Tennis Classifier NN 1.mlmodel */,
 				8F44F53D2840F9C300A74043 /* FYP 1.mlmodel */,
 				52A8D69D1CF52A2400522498 /* MotionTrackingExtension.entitlements */,
 			);
@@ -320,12 +338,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				52AFB3A21CEAD2D800BE33DC /* LaunchScreen.storyboard in Resources */,
+				2643AE532B8B8630006874F5 /* Back_template.csv in Resources */,
 				8F41C59B2848142300950109 /* Template_Cut.csv in Resources */,
+				2643AE562B8B8630006874F5 /* Serve_template.csv in Resources */,
 				8F41C5992848140C00950109 /* Template_Defensive.csv in Resources */,
 				8F41C59F2848143C00950109 /* Template_Sweep.csv in Resources */,
 				8F41C5972848029200950109 /* Template_Drive.csv in Resources */,
 				52AFB39F1CEAD2D800BE33DC /* Assets.xcassets in Resources */,
+				2643AE542B8B8630006874F5 /* Fore_template.csv in Resources */,
 				52AFB39D1CEAD2D800BE33DC /* Main.storyboard in Resources */,
+				2643AE552B8B8630006874F5 /* ForeV_template.csv in Resources */,
+				2643AE522B8B8630006874F5 /* BackV_template.csv in Resources */,
 				8F41C59D2848143300950109 /* Template_Pull.csv in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -397,6 +420,7 @@
 				8F44F54028437B9100A74043 /* TableShowViewController.swift in Sources */,
 				52AFB39A1CEAD2D800BE33DC /* ViewController.swift in Sources */,
 				52AFB3981CEAD2D800BE33DC /* AppDelegate.swift in Sources */,
+				2643AE4C2B8B6EFC006874F5 /* Tennis Classifier NN 1.mlmodel in Sources */,
 				8F44F53E2840F9C300A74043 /* FYP 1.mlmodel in Sources */,
 				8F44F5442843DC0000A74043 /* HistoryViewController.swift in Sources */,
 				8FBEA506280F08BF008832F5 /* ViewController_Stats.swift in Sources */,
