@@ -31,7 +31,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate
     
     var stats = [[Double]]()
     
-    var session_no = 0
+    var session_no = 1
     var starttimes = [String]()
     var endtimes = [String]()
     

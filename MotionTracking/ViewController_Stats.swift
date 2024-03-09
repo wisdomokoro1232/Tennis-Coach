@@ -23,6 +23,9 @@ class ViewController_Stats: UIViewController, ChartViewDelegate, UITableViewDele
     @IBOutlet weak var radarChart: RadarChartView!
     @IBOutlet weak var shotlabel: UILabel!
     
+    @IBOutlet weak var Quality: UILabel!
+    
+    
     var selectedButton = UIButton()
     let transparentView = UIView()
     let tableView = UITableView()
@@ -37,19 +40,20 @@ class ViewController_Stats: UIViewController, ChartViewDelegate, UITableViewDele
 
     
     //MARK: Set Up
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         radarChart.delegate = self
         tableView.delegate = self
         tableView.dataSource = self
         tableView.register(CellClass.self, forCellReuseIdentifier: "Cell")
+        
+        
     }
     
     
     
     //MARK: Pop Up Table functions
-    
     func addTransparentView(frames: CGRect) {
         let window = UIApplication.shared.keyWindow
         transparentView.frame = window?.frame ?? self.view.frame
@@ -119,20 +123,21 @@ class ViewController_Stats: UIViewController, ChartViewDelegate, UITableViewDele
         
         radarChart.webLineWidth = 1.5
         radarChart.innerWebLineWidth = 1.5
-        radarChart.webColor = .lightGray
-        radarChart.innerWebColor = .lightGray
+        radarChart.webColor = .red
+        radarChart.innerWebColor = .red
 
         let xAxis = radarChart.xAxis
         xAxis.labelFont = .systemFont(ofSize: 9, weight: .bold)
         xAxis.labelTextColor = .black
-        xAxis.xOffset = 10
-        xAxis.yOffset = 10
+        xAxis.xOffset = 50
+        xAxis.yOffset = 50
         xAxis.drawLabelsEnabled = true
         xAxis.gridLineWidth = CGFloat(10.0)
         xAxis.valueFormatter = IndexAxisValueFormatter(values: array)
         xAxis.labelFont = .systemFont(ofSize: 11, weight: .semibold)
 
         let yAxis = radarChart.yAxis
+        xAxis.labelTextColor = .black
         yAxis.labelFont = .systemFont(ofSize: 9, weight: .light)
         yAxis.labelCount = 5
         yAxis.drawTopYLabelEntryEnabled = false
@@ -140,6 +145,8 @@ class ViewController_Stats: UIViewController, ChartViewDelegate, UITableViewDele
         
         radarChart.data = data
         radarChart.legend.enabled = false
+        let axis = appDelegate.stats[shotSelected]
+        Quality.text=String(axis[1].rounded())
         
     }
 

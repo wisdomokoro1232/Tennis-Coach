@@ -40,7 +40,7 @@ class ViewController: UIViewController, ChartViewDelegate, UITextFieldDelegate {
     var numberOfDownloadsDataEntries = [PieChartDataEntry]()
     var line_entries = [BarChartDataEntry]()
     
-    var count = 1
+    var count = 0
     var readFile = ""
     var graph = 0
     var status = true
@@ -89,8 +89,8 @@ class ViewController: UIViewController, ChartViewDelegate, UITextFieldDelegate {
         static let hiddenCellInLength = 380
       }
     // Initialize the model, layers, and sensor data arrays
-      private let classifier = Tennis_Classifier_NN_1()
-      private let modelName:String = "Tennis Classifier NN 1"
+      private let classifier = Tennis_Classifier_NN3()
+      private let modelName:String = "Tennis Classifier NN3"
     
     
     
@@ -208,8 +208,8 @@ class ViewController: UIViewController, ChartViewDelegate, UITextFieldDelegate {
         backhandDataEntry.label = "backhand"
         let back_index = names.enumerated().filter{ $0.element == "backhand"}.map{ $0.offset }
         if back_index.count > 0 {
-            let val_forehand  = Double(values[back_index[0]])
-            backhandDataEntry.value = val_forehand
+            let val_back  = Double(values[back_index[0]])
+            backhandDataEntry.value = val_back
         }
         else {backhandDataEntry.value = 0}
         
@@ -229,16 +229,16 @@ class ViewController: UIViewController, ChartViewDelegate, UITextFieldDelegate {
         }
         else {serveDataEntry.value = 0}
 
-        forevDataEntry.label = "forehand volley"
-        let forev_index = names.enumerated().filter{ $0.element == "forehand volley"}.map{ $0.offset }
+        forevDataEntry.label = "volley forehand"
+        let forev_index = names.enumerated().filter{ $0.element == "volley forehand"}.map{ $0.offset }
         if forev_index.count > 0 {
             let val_forev  = Double(values[forev_index[0]])
             forevDataEntry.value = val_forev
         }
         else {forevDataEntry.value = 0}
 
-        backvDataEntry.label = "backhand volley"
-        let backv_index = names.enumerated().filter{ $0.element == "backhand volley"}.map{ $0.offset }
+        backvDataEntry.label = "volley backhand"
+        let backv_index = names.enumerated().filter{ $0.element == "volley backhand"}.map{ $0.offset }
         if backv_index.count > 0 {
             let val_backv  = Double(values[backv_index[0]])
             backvDataEntry.value = val_backv
@@ -253,6 +253,7 @@ class ViewController: UIViewController, ChartViewDelegate, UITextFieldDelegate {
         
         self.pieChartshots.legend.enabled = false
         chartDataSet.colors = ChartColorTemplates.joyful()
+        chartDataSet.valueTextColor=NSUIColor(red: 0/255.0, green: 0/255.0, blue: 0/255.0, alpha: 1.0)
         pieChartshots.data = chartData
         pieChartshots.animate(xAxisDuration: 2.0, yAxisDuration: 2.0, easingOption: .easeInBounce)
         
@@ -421,8 +422,8 @@ class ViewController: UIViewController, ChartViewDelegate, UITextFieldDelegate {
         let sep = readFile.components(separatedBy: ",")
         print(sep.count)
         
-        
-        if (sep.count > 700) {
+
+        if (sep.count > 1400) {
             // 250 here referes to amount of samples in a shot to be fed
             // to the model
             let rotX = sep[1...250]
@@ -469,6 +470,7 @@ class ViewController: UIViewController, ChartViewDelegate, UITextFieldDelegate {
             PerformanceParameters()
             
             graph = graph + 1
+//            calculate min max, area and std deviation of the values of gyro and acceleration
             
         }
     }
@@ -555,12 +557,12 @@ class ViewController: UIViewController, ChartViewDelegate, UITextFieldDelegate {
                 consistency[5] = consistency[5] + sqrt(pow((appDelegate.rotZ_edit[i])-Double((temp_bck[5].index(0, offsetBy: i))),2))
             }
             
-            consistency[0] = ((500.0-consistency[0])/400.0)*5.0 + 5.0
-            consistency[1] = ((500.0-consistency[1])/400.0)*5.0 + 5.0
-            consistency[2] = ((500.0-consistency[2])/400.0)*5.0 + 5.0
-            consistency[3] = ((500.0-consistency[3])/400.0)*5.0 + 5.0
-            consistency[4] = ((500.0-consistency[4])/400.0)*5.0 + 5.0
-            consistency[5] = ((500.0-consistency[5])/400.0)*5.0 + 5.0
+            consistency[0] = 10*(100-consistency[0])/90
+            consistency[1] = 10*(100-consistency[1])/90
+            consistency[2] = 10*(100-consistency[2])/90
+            consistency[3] = 10*(100-consistency[3])/90
+            consistency[4] = 10*(100-consistency[4])/90
+            consistency[5] = 10*(100-consistency[5])/90
             
             let sumArray = consistency.reduce(0, +)
             avgconsistency = sumArray / Double(consistency.count)
@@ -576,12 +578,18 @@ class ViewController: UIViewController, ChartViewDelegate, UITextFieldDelegate {
                 consistency[5] = consistency[5] + sqrt(pow((appDelegate.rotZ_edit[i])-Double((temp_fre[5].index(0, offsetBy: i))),2))
             }
             
-            consistency[0] = ((500.0-consistency[0])/400.0)*5.0 + 5.0
-            consistency[1] = ((500.0-consistency[1])/400.0)*5.0 + 5.0
-            consistency[2] = ((500.0-consistency[2])/400.0)*5.0 + 5.0
-            consistency[3] = ((500.0-consistency[3])/400.0)*5.0 + 5.0
-            consistency[4] = ((500.0-consistency[4])/400.0)*5.0 + 5.0
-            consistency[5] = ((500.0-consistency[5])/400.0)*5.0 + 5.0
+//            consistency[0] = ((100.0-consistency[0])/90.0)*5.0 + 5.0
+//            consistency[1] = ((100.0-consistency[1])/90.0)*5.0 + 5.0
+//            consistency[2] = ((100.0-consistency[2])/90.0)*5.0 + 5.0
+//            consistency[3] = ((100.0-consistency[3])/90.0)*5.0 + 5.0
+//            consistency[4] = ((100.0-consistency[4])/90.0)*5.0 + 5.0
+//            consistency[5] = ((100.0-consistency[5])/90.0)*5.0 + 5.0
+            consistency[0] = 10*(100-consistency[0])/90
+            consistency[1] = 10*(100-consistency[1])/90
+            consistency[2] = 10*(100-consistency[2])/90
+            consistency[3] = 10*(100-consistency[3])/90
+            consistency[4] = 10*(100-consistency[4])/90
+            consistency[5] = 10*(100-consistency[5])/90
             
             let sumArray = consistency.reduce(0, +)
             avgconsistency = sumArray / Double(consistency.count)
@@ -596,19 +604,38 @@ class ViewController: UIViewController, ChartViewDelegate, UITextFieldDelegate {
                 consistency[4] = consistency[4] + sqrt(pow((appDelegate.rotY_edit[i])-Double((temp_serve[4].index(0, offsetBy: i))),2))
                 consistency[5] = consistency[5] + sqrt(pow((appDelegate.rotZ_edit[i])-Double((temp_serve[5].index(0, offsetBy: i))),2))
             }
-            
-            consistency[0] = ((500.0-consistency[0])/400.0)*5.0 + 5.0
-            consistency[1] = ((500.0-consistency[1])/400.0)*5.0 + 5.0
-            consistency[2] = ((500.0-consistency[2])/400.0)*5.0 + 5.0
-            consistency[3] = ((500.0-consistency[3])/400.0)*5.0 + 5.0
-            consistency[4] = ((500.0-consistency[4])/400.0)*5.0 + 5.0
-            consistency[5] = ((500.0-consistency[5])/400.0)*5.0 + 5.0
-            
+            consistency[0] = 10*(100-consistency[0])/90
+            consistency[1] = 10*(100-consistency[1])/90
+            consistency[2] = 10*(100-consistency[2])/90
+            consistency[3] = 10*(100-consistency[3])/90
+            consistency[4] = 10*(100-consistency[4])/90
+            consistency[5] = 10*(100-consistency[5])/90
             let sumArray = consistency.reduce(0, +)
             avgconsistency = sumArray / Double(consistency.count)
         }
         
-        if self.classlabel.text == "forehand volley" {
+        if self.classlabel.text == "volley forehand" {
+            for i in (0...shotlength) {
+                consistency[0] = consistency[0] + sqrt(pow((appDelegate.accX_edit[i])-Double((temp_frv[0].index(0, offsetBy: i))),2))
+                consistency[1] = consistency[1] + sqrt(pow((appDelegate.accY_edit[i])-Double((temp_frv[1].index(0, offsetBy: i))),2))
+                consistency[2] = consistency[2] + sqrt(pow((appDelegate.accZ_edit[i])-Double((temp_frv[2].index(0, offsetBy: i))),2))
+                consistency[3] = consistency[3] + sqrt(pow((appDelegate.rotX_edit[i])-Double((temp_frv[3].index(0, offsetBy: i))),2))
+                consistency[4] = consistency[4] + sqrt(pow((appDelegate.rotY_edit[i])-Double((temp_frv[4].index(0, offsetBy: i))),2))
+                consistency[5] = consistency[5] + sqrt(pow((appDelegate.rotZ_edit[i])-Double((temp_frv[5].index(0, offsetBy: i))),2))
+    
+            }
+            
+            consistency[0] = 10*(100-consistency[0])/90
+            consistency[1] = 10*(100-consistency[1])/90
+            consistency[2] = 10*(100-consistency[2])/90
+            consistency[3] = 10*(100-consistency[3])/90
+            consistency[4] = 10*(100-consistency[4])/90
+            consistency[5] = 10*(100-consistency[5])/90
+            let sumArray = consistency.reduce(0, +)
+            avgconsistency = sumArray / Double(consistency.count)
+        }
+        
+        if self.classlabel.text == "volley backhand" {
             for i in (0...shotlength) {
                 consistency[0] = consistency[0] + sqrt(pow((appDelegate.accX_edit[i])-Double((temp_bckv[0].index(0, offsetBy: i))),2))
                 consistency[1] = consistency[1] + sqrt(pow((appDelegate.accY_edit[i])-Double((temp_bckv[1].index(0, offsetBy: i))),2))
@@ -618,41 +645,19 @@ class ViewController: UIViewController, ChartViewDelegate, UITextFieldDelegate {
                 consistency[5] = consistency[5] + sqrt(pow((appDelegate.rotZ_edit[i])-Double((temp_bckv[5].index(0, offsetBy: i))),2))
             }
             
-            consistency[0] = ((500.0-consistency[0])/400.0)*5.0 + 5.0
-            consistency[1] = ((500.0-consistency[1])/400.0)*5.0 + 5.0
-            consistency[2] = ((500.0-consistency[2])/400.0)*5.0 + 5.0
-            consistency[3] = ((500.0-consistency[3])/400.0)*5.0 + 5.0
-            consistency[4] = ((500.0-consistency[4])/400.0)*5.0 + 5.0
-            consistency[5] = ((500.0-consistency[5])/400.0)*5.0 + 5.0
-            
+            consistency[0] = 10*(100-consistency[0])/90
+            consistency[1] = 10*(100-consistency[1])/90
+            consistency[2] = 10*(100-consistency[2])/90
+            consistency[3] = 10*(100-consistency[3])/90
+            consistency[4] = 10*(100-consistency[4])/90
+            consistency[5] = 10*(100-consistency[5])/90
             let sumArray = consistency.reduce(0, +)
             avgconsistency = sumArray / Double(consistency.count)
         }
         
-        if self.classlabel.text == "backhand volley" {
-            for i in (0...shotlength) {
-                consistency[0] = consistency[0] + sqrt(pow((appDelegate.accX_edit[i])-Double((temp_frv[0].index(0, offsetBy: i))),2))
-                consistency[1] = consistency[1] + sqrt(pow((appDelegate.accY_edit[i])-Double((temp_frv[1].index(0, offsetBy: i))),2))
-                consistency[2] = consistency[2] + sqrt(pow((appDelegate.accZ_edit[i])-Double((temp_frv[2].index(0, offsetBy: i))),2))
-                consistency[3] = consistency[3] + sqrt(pow((appDelegate.rotX_edit[i])-Double((temp_frv[3].index(0, offsetBy: i))),2))
-                consistency[4] = consistency[4] + sqrt(pow((appDelegate.rotY_edit[i])-Double((temp_frv[4].index(0, offsetBy: i))),2))
-                consistency[5] = consistency[5] + sqrt(pow((appDelegate.rotZ_edit[i])-Double((temp_frv[5].index(0, offsetBy: i))),2))
-            }
-            
-            consistency[0] = ((500.0-consistency[0])/400.0)*5.0 + 5.0
-            consistency[1] = ((500.0-consistency[1])/400.0)*5.0 + 5.0
-            consistency[2] = ((500.0-consistency[2])/400.0)*5.0 + 5.0
-            consistency[3] = ((500.0-consistency[3])/400.0)*5.0 + 5.0
-            consistency[4] = ((500.0-consistency[4])/400.0)*5.0 + 5.0
-            consistency[5] = ((500.0-consistency[5])/400.0)*5.0 + 5.0
-            
-            let sumArray = consistency.reduce(0, +)
-            avgconsistency = sumArray / Double(consistency.count)
-        }
-        
-        if avgconsistency < 0 {
-            avgconsistency = 0
-        }
+//        if avgconsistency < 0 {
+//            avgconsistency = 0
+//        }
         
         
         // Initial Bat Lift Angle
@@ -737,7 +742,7 @@ class ViewController: UIViewController, ChartViewDelegate, UITextFieldDelegate {
             ImpactAngle = impactangles_lookup[index]
         }
         
-        if self.classlabel.text == "forehand volley" {
+        if self.classlabel.text == "volley forehand" {
             
             let impactangles_lookup = Array(stride(from: 45.0, through: 160.0, by: 0.1))
             let no_imp_pll = impactangles_lookup.count
@@ -756,7 +761,7 @@ class ViewController: UIViewController, ChartViewDelegate, UITextFieldDelegate {
         }
         
         
-        if self.classlabel.text == "backhand volley" {
+        if self.classlabel.text == "volley backhand" {
             
             let impactangles_lookup = Array(stride(from: 45.0, through: 160.0, by: 0.1))
             let no_imp_swp = impactangles_lookup.count

@@ -44,12 +44,21 @@ class HistoryTableViewController: UITableViewController {
     
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
-        let cell = tableView.dequeueReusableCell(withIdentifier: "Session History", for: indexPath)
-        let tablecounter = Array(stride(from: 1, through: appDelegate.session_no, by: 1))
-        cell.textLabel?.text = "Session \(tablecounter[indexPath.row]): \(appDelegate.starttimes[indexPath.row])"
+         let cell = tableView.dequeueReusableCell(withIdentifier: "Session History", for: indexPath)
+         let tablecounter = Array(stride(from: 1, through: appDelegate.session_no, by: 1))
+         
+         if indexPath.row < appDelegate.starttimes.count {
+             cell.textLabel?.text = "Session \(tablecounter[indexPath.row]): \(appDelegate.starttimes[indexPath.row])"
+         } else {
+             cell.textLabel?.text = "Session \(tablecounter[indexPath.row])"
+         }
 
-        return cell
+         return cell
+//        let cell = tableView.dequeueReusableCell(withIdentifier: "Session History", for: indexPath)
+//        let tablecounter = Array(stride(from: 1, through: appDelegate.session_no, by: 1))
+//        cell.textLabel?.text = "Session \(tablecounter[indexPath.row]): \(appDelegate.starttimes[indexPath.row])"
+//
+//        return cell
     }
     
     

@@ -52,21 +52,24 @@ class TableShowViewController: UIViewController {
         let set2 = LineChartDataSet(entries: line_entries, label: name)
         
         set2.colors = [NSUIColor(red: CGFloat(80.0/255), green: CGFloat(33.0/255), blue: CGFloat(222.0/255), alpha: 1)]
-        self.lineChart.legend.verticalAlignment = .top
-        self.lineChart.legend.horizontalAlignment = .left
-        set2.drawCirclesEnabled = false;
-        set2.lineWidth = 5.5
-        set2.drawValuesEnabled = false
-        
-        let data2 = LineChartData(dataSet: set2)
-        lineChart.data = data2
-        lineChart.noDataText = "You need to register a shot for this chart to display!"
-//        lineChart.backgroundColor = UIColor(red: 189/255, green: 195/255, blue: 199/255, alpha: 1)
-        lineChart.animate(xAxisDuration: 2.0, yAxisDuration: 2.0, easingOption: .easeInBounce)
-        lineChart.drawMarkers = false
-        lineChart.rightAxis.enabled = false
-        lineChart.xAxis.labelPosition = .bottom
-        lineChart.xAxis.drawLabelsEnabled = true
+//        Ensure any updates to ui are done in main thread
+        DispatchQueue.main.async {
+            self.lineChart.legend.verticalAlignment = .top
+            self.lineChart.legend.horizontalAlignment = .left
+        }
+            set2.drawCirclesEnabled = false;
+            set2.lineWidth = 5.5
+            set2.drawValuesEnabled = false
+            
+            let data2 = LineChartData(dataSet: set2)
+            lineChart.data = data2
+            lineChart.noDataText = "You need to register a shot for this chart to display!"
+            //        lineChart.backgroundColor = UIColor(red: 189/255, green: 195/255, blue: 199/255, alpha: 1)
+            lineChart.animate(xAxisDuration: 2.0, yAxisDuration: 2.0, easingOption: .easeInBounce)
+            lineChart.drawMarkers = false
+            lineChart.rightAxis.enabled = false
+            lineChart.xAxis.labelPosition = .bottom
+            lineChart.xAxis.drawLabelsEnabled = true
         
     }
     
@@ -126,9 +129,9 @@ class TableShowViewController: UIViewController {
     
     // MARK: - Class Button Functions
     
-    @IBAction func cutPressed(_ sender: Any) {
+    @IBAction func backPressed(_ sender: Any) {
         
-        if appDelegate.shots[contactIndex] == "Cut" {     // you should probably force everything to lowercase, to avoid wrong test
+        if appDelegate.shots[contactIndex] == "forehand" {     // you should probably force everything to lowercase, to avoid wrong test
             accuracy.text = "Classification: Correct"
             appDelegate.percentaccuracy += 1
             print("Real Shot Indicated: \(appDelegate.percentaccuracy)")
@@ -136,9 +139,9 @@ class TableShowViewController: UIViewController {
         else {accuracy.text = "Classification: Incorrect"}
     }
     
-    @IBAction func defensivePressed(_ sender: Any) {
+    @IBAction func forehandPressed(_ sender: Any) {
         
-        if appDelegate.shots[contactIndex] == "Defensive" {     // you should probably force everything to lowercase, to avoid wrong test
+        if appDelegate.shots[contactIndex] == "backhand" {     // you should probably force everything to lowercase, to avoid wrong test
             accuracy.text = "Classification: Correct"
             appDelegate.percentaccuracy += 1
             print("Real Shot Indicated: \(appDelegate.percentaccuracy)")
@@ -146,27 +149,27 @@ class TableShowViewController: UIViewController {
         else {accuracy.text = "Classification: Incorrect"}
     }
     
-    @IBAction func drivePressed(_ sender: Any) {
+    @IBAction func servePressed(_ sender: Any) {
         
-        if appDelegate.shots[contactIndex] == "Drive" {     // you should probably force everything to lowercase, to avoid wrong test
+        if appDelegate.shots[contactIndex] == "serve" {     // you should probably force everything to lowercase, to avoid wrong test
             accuracy.text = "Classification: Correct"
             appDelegate.percentaccuracy += 1
         }
         else {accuracy.text = "Classification: Incorrect"}
     }
     
-    @IBAction func pullPressed(_ sender: Any) {
+    @IBAction func backvolleyPressed(_ sender: Any) {
         
-        if appDelegate.shots[contactIndex] == "Pull" {     // you should probably force everything to lowercase, to avoid wrong test
+        if appDelegate.shots[contactIndex] == "volley backhand" {     // you should probably force everything to lowercase, to avoid wrong test
             accuracy.text = "Classification: Correct"
             appDelegate.percentaccuracy += 1
         }
         else {accuracy.text = "Classification: Incorrect"}
     }
     
-    @IBAction func sweepPressed(_ sender: Any) {
+    @IBAction func forevolleyPressed(_ sender: Any) {
         
-        if appDelegate.shots[contactIndex] == "Sweep" {     // you should probably force everything to lowercase, to avoid wrong test
+        if appDelegate.shots[contactIndex] == "volley forehand" {     // you should probably force everything to lowercase, to avoid wrong test
             accuracy.text = "Classification: Correct"
             appDelegate.percentaccuracy += 1
         }

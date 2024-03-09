@@ -32,15 +32,17 @@ class HistoryViewController: UIViewController {
         
         let tablecounter = Array(stride(from: 1, through: appDelegate.session_no, by: 1))
         
-        session.text = "Session \(tablecounter[sessionIndex])"
-        duration.text = "\(appDelegate.starttimes[sessionIndex])"
-        durationend.text = "\(appDelegate.endtimes[sessionIndex])"
-        
-        chart.image = appDelegate.image[sessionIndex].toImage() // it will convert String  to UIImage
-        
-        acc.text = "Accuracy: \(appDelegate.overallaccuracy[sessionIndex]) %"
-        
-        name.text = "\(appDelegate.name[sessionIndex]) (\(appDelegate.orientation[sessionIndex]))"
+        if sessionIndex < appDelegate.starttimes.count {
+            session.text = "Session \(tablecounter[sessionIndex])"
+            duration.text = "\(appDelegate.starttimes[sessionIndex])"
+            durationend.text = "\(appDelegate.endtimes[sessionIndex])"
+            chart.image = appDelegate.image[sessionIndex].toImage() // it will convert String  to UIImage
+            acc.text = "Accuracy: \(appDelegate.overallaccuracy[sessionIndex]) %"
+            name.text = "\(appDelegate.name[sessionIndex]) (\(appDelegate.orientation[sessionIndex]))"
+        } else {
+            session.text = "No session recorded"
+            // Set other UI elements to default values or hide them
+        }
     }
 
 }
